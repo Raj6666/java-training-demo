@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ 广州丰石科技有限公司拥有本软件版权2017并保留所有权利。
+  ~ Copyright 2017, Guangzhou Rich Stone Data Technologies Company Limited,
+  ~ All rights reserved.
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <import resource="mapping.xml"/>
+    <import resource="JdbcTemplate.xml"/>
+    <bean id="commodityDao" class="com.richstonedt.gempile.commodity.cs.dao.commodity.impl.CommodityDaoImpl" lazy-init="true">
+        <property name="queryEntityConfig" ref="commodifyInfo"/>
+    </bean>
+</beans>

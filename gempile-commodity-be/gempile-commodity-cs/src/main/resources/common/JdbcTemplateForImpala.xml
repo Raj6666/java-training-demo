@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ 广州丰石科技有限公司拥有本软件版权2017并保留所有权利。
+  ~ Copyright 2017, Guangzhou Rich Stone Data Technologies Company Limited,
+  ~ All rights reserved.
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="dataSourceForImpala" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.cloudera.impala.jdbc41.Driver"/>
+        <property name="url" value="${impala-url}"/>
+        <!--<property name="url" value="jdbc:impala://192.168.6.64:21050/default;AuthMech=0;"/>-->
+        <!--<property name="username" value="root"/>-->
+        <!--<property name="password" value="admin"/>-->
+    </bean>
+    <bean id="jdbcTemplateForImpala" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSourceForImpala"/>
+    </bean>
+</beans>

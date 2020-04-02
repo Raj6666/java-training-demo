@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ 广州丰石科技有限公司拥有本软件版权2017并保留所有权利。
+  ~ Copyright 2017, Guangzhou Rich Stone Data Technologies Company Limited,
+  ~ All rights reserved.
+  -->
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+       http://www.springframework.org/schema/jdbc
+	   http://www.springframework.org/schema/jdbc/spring-jdbc.xsd  "
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc">
+    <context:component-scan base-package="com.richstonedt.*">
+        <context:exclude-filter type="annotation" expression="com.richstonedt.gempile.core.cs.common.IgnoreDuringScan"/>
+        <context:exclude-filter type="aspectj" expression="com.richstonedt.gempile.core.cs.common.redis.RedisCacheAspect"/>
+    </context:component-scan>
+    <!--<import resource="common/JdbcTemplate.xml"/>-->
+    <!--<import resource="common/JdbcTemplate.xml"/>-->
+    <import resource="common/JdbcTemplateForImpala.xml"/>
+    <import resource="common/mapping.xml"/>
+    <import resource="common/ImpalaBeans.xml"/>
+    <import resource="common/GemService.xml"/>
+    <!--<import resource="common/RedisCacheAop.xml"/>-->
+    <!--<import resource="common/RedisCacheAop.xml"/>-->
+    <bean id="jdbcTemplateFactory" class="com.richstonedt.gempile.core.cs.factory.JdbcTemplateFactory">
+        <property name="dataSourceMap">
+            <null/>
+        </property>
+        <property name="defaultDataSource" ref="defaultDataSource"/>
+    </bean>
+    <!--bean id="defaultDataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url"
+                  value="jdbc:postgresql://192.168.6.97:5432/GEMPILETEST"/>
+        <property name="username" value="postgres"/>
+        <property name="password" value="postgres"/>
+    </bean-->
+    <bean id="defaultDataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+        <property name="url"
+                  value="jdbc:oracle:thin:@192.168.6.24:1521:xe"/>
+        <property name="username" value="HUIZHOU"/>
+        <property name="password" value="Richstone123!"/>
+    </bean>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="defaultDataSource"/>
+    </bean>
+
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="defaultDataSource"/>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <bean id="jedisPool" class="redis.clients.jedis.JedisPool" destroy-method="destroy">
+        <constructor-arg index="0">
+            <bean id="innerJedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+                <property name="maxIdle" value="${redis.maxIdle}"/>
+                <property name="minEvictableIdleTimeMillis" value="${redis.minEvictableIdleTimeMillis}"/>
+                <property name="numTestsPerEvictionRun" value="${redis.numTestsPerEvictionRun}"/>
+                <property name="timeBetweenEvictionRunsMillis" value="${redis.timeBetweenEvictionRunsMillis}"/>
+            </bean>
+        </constructor-arg>
+        <constructor-arg index="1" value="${redis.hostName}" type="java.lang.String"/>
+        <constructor-arg index="2" value="${redis.port}" type="int"/>
+        <constructor-arg index="3" value="${redis.timeout}" type="int"/>
+    </bean>
+</beans>

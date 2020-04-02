@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ 广州丰石科技有限公司拥有本软件版权2018并保留所有权利。
+  ~ Copyright 2018, Guangzhou Rich Stone Data Technologies Company Limited,
+  ~ All rights reserved.
+  ~
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="commodifyInfo_name" class="com.richstonedt.commons.dao.QueryFieldConfig">
+        <property name="name" value="name"/>
+        <property name="tableFieldName" value="NAME"/>
+        <property name="type" value="java.lang.String"/>
+    </bean>
+    <bean id="commodifyInfo_id" class="com.richstonedt.commons.dao.QueryFieldConfig">
+        <property name="name" value="id"/>
+        <property name="tableFieldName" value="ID"/>
+        <property name="type" value="java.lang.Integer"/>
+    </bean>
+    <bean id="commodifyInfo_price" class="com.richstonedt.commons.dao.QueryFieldConfig">
+        <property name="name" value="price"/>
+        <property name="tableFieldName" value="PRICE"/>
+        <property name="type" value="java.lang.Double"/>
+    </bean>
+    <bean id="commodifyInfo_producter" class="com.richstonedt.commons.dao.QueryFieldConfig">
+        <property name="name" value="producter"/>
+        <property name="tableFieldName" value="PRODUCTER"/>
+        <property name="type" value="java.lang.String"/>
+    </bean>
+    <bean id="commodifyInfo_weight" class="com.richstonedt.commons.dao.QueryFieldConfig">
+        <property name="name" value="weight"/>
+        <property name="tableFieldName" value="WEIGHT"/>
+        <property name="type" value="java.lang.Double"/>
+    </bean>
+    <bean id="commodifyInfo_type" class="com.richstonedt.commons.dao.QueryFieldConfig">
+        <property name="name" value="name"/>
+        <property name="tableFieldName" value="NAME"/>
+        <property name="type" value="java.lang.String"/>
+    </bean>
+    <bean id="commodifyInfo" class="com.richstonedt.commons.dao.QueryEntityConfig">
+        <property name="type" value="com.richstonedt.gempile.commodity.model.commodity.CommodityInfo"/>
+        <property name="tableName" value="F_HX_COMMODIFY_INFO_D"/>
+        <property name="queryFieldConfig">
+            <list>
+                <ref bean="commodifyInfo_name"/>
+                <ref bean="commodifyInfo_id"/>
+                <ref bean="commodifyInfo_price"/>
+                <ref bean="commodifyInfo_producter"/>
+                <ref bean="commodifyInfo_weight"/>
+                <ref bean="commodifyInfo_type"/>
+            </list>
+        </property>
+    </bean>
+</beans>

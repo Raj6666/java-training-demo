@@ -1,0 +1,47 @@
+<!--
+  ~ 广州丰石科技有限公司拥有本软件版权2017并保留所有权利。
+  ~ Copyright 2017, Guangzhou Rich Stone Data Technologies Company Limited,
+  ~ All rights reserved.
+  -->
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:component-scan base-package="com.richstonedt.*"/>
+    <!--<import resource="common/JdbcTemplate.xml"/>-->
+    <!--<import resource="common/JdbcTemplateForImpala.xml"/>-->
+    <!--<import resource="common/mapping.xml"/>-->
+    <!--<import resource="common/GemService.xml"/>-->
+    <!--<import resource="common/RedisCacheAop.xml"/>-->
+    <!-- Keep this bean for Junit test cases -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url" value="jdbc:postgresql://192.168.6.97:5432/GEMPILETEST"/>
+        <property name="username" value="postgres"/>
+        <property name="password" value="postgres"/>
+    </bean>
+    <!-- Keep this bean for Junit test cases -->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--Substitution Beans for Impala test-->
+    <!--<bean id="gemSubscriberXdrRetrievalSessionAnalysisDaoForX2" class="GemX2SessionAnalysisDaoImpl">-->
+        <!--&lt;!&ndash;For test&ndash;&gt;-->
+        <!--<property name="jdbcTemplate" ref="jdbcTemplate"/>-->
+        <!--&lt;!&ndash;<property name="jdbcTemplate" ref="jdbcTemplateForImpala"/>&ndash;&gt;-->
+        <!--<property name="queryEntityConfig" ref="x2_sessionAnalysis"/>-->
+    <!--</bean>-->
+    <!--<bean id="gemUuSessionAnalysisDao" class="GemUuSessionAnalysisDaoImpl">-->
+        <!--&lt;!&ndash;For test&ndash;&gt;-->
+        <!--<property name="jdbcTemplate" ref="jdbcTemplate"/>-->
+        <!--&lt;!&ndash;<property name="jdbcTemplate" ref="jdbcTemplateForImpala"/>&ndash;&gt;-->
+        <!--<property name="queryEntityConfig" ref="uu_sessionAnalysis"/>-->
+    <!--</bean>-->
+    <!--<bean id="gemMrSessionAnalysisDao" class="GemMrSessionAnalysisDaoImpl">-->
+        <!--&lt;!&ndash;For test&ndash;&gt;-->
+        <!--<property name="jdbcTemplate" ref="jdbcTemplate"/>-->
+        <!--&lt;!&ndash;<property name="jdbcTemplate" ref="jdbcTemplateForImpala"/>&ndash;&gt;-->
+        <!--<property name="queryEntityConfig" ref="mr_sessionAnalysis"/>-->
+    <!--</bean>-->
+</beans>

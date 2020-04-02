@@ -1,0 +1,1 @@
+ALTER TABLE gem_key_indicator_alerting_message_notification_configs ADD is_send_msg bool;

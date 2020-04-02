@@ -1,0 +1,11 @@
+INSERT INTO "gem_road_types" VALUES ('1364939210837988353', '高速公路', '1');
+INSERT INTO "gem_road_types" VALUES ('1364939210837988354', '国道', '2');
+INSERT INTO "gem_road_types" VALUES ('1364939210837988355', '城市环路/城市快速路', '3');
+INSERT INTO "gem_road_types" VALUES ('1364939210837988356', '省道', '4');
+INSERT INTO "gem_road_types" VALUES ('1364939210837988357', '主要道路（城市主干道）', '5');
+INSERT INTO "gem_road_types" VALUES ('1364939210837988358', '次要道路（城市次干道）', '6');
+INSERT INTO "gem_road_types" VALUES ('1364939210837988359', '县道', '7');
+INSERT INTO "gem_road_types" VALUES ('1364939210837988360', '乡村道路', '8');
+INSERT INTO "gem_road_types" VALUES ('1364939210846376969', '区县内部道路', '9');
+INSERT INTO "gem_road_types" VALUES ('1364939210846376970', '一般道路', '10');
+INSERT INTO "gem_road_types" VALUES ('1364939210846376971', '非导航道路', '11');

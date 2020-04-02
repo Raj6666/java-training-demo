@@ -1,0 +1,1 @@
+INSERT INTO gem_realtime_monitoring_indicator_rules (id,name,parameter, operator,threshold,dimension_values,dimension_name,network_interface,unit,datetime,interval,show) VALUES ('t1','1','1','>=',90,'sa,sa,fsd','11','11','11','2016-2-3 6:23:21','5',false);

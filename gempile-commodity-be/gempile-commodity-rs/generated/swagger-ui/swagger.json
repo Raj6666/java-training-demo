@@ -1,0 +1,164 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Gempile RESTful API",
+    "version" : "v1.0",
+    "title" : "gempile-rs RESTful API Documentation Gempile项目RESTful API文档",
+    "termsOfService" : "http://www.richstonedt.com/",
+    "contact" : {
+      "name" : "Contact Name",
+      "url" : "http://richstonedt.com",
+      "email" : "contact@richstonedt.com"
+    }
+  },
+  "host" : "192.168.6.97:8080",
+  "basePath" : "/gempile-rs",
+  "tags" : [ {
+    "name" : "commodityInterface"
+  } ],
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/v0.1.0/commodity/commodityInfos" : {
+      "get" : {
+        "tags" : [ "commodityInterface" ],
+        "summary" : "查询商品信息列表",
+        "description" : "get commodity infos",
+        "operationId" : "getCommonditryInfos",
+        "produces" : [ "application/json;charset=UTF-8" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "description" : "int类型，商品编号",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "type" : "object"
+            }
+          },
+          "500" : {
+            "description" : "internal server error"
+          }
+        }
+      }
+    },
+    "/v0.1.0/commodity/createcommodityInfos" : {
+      "post" : {
+        "tags" : [ "commodityInterface" ],
+        "summary" : "新增商品",
+        "description" : "新增商品",
+        "operationId" : "createCommonditryInfos",
+        "produces" : [ "application/json;charset=UTF-8" ],
+        "parameters" : [ {
+          "name" : "commodityInfos",
+          "in" : "query",
+          "description" : "String类型，商品信息，例如格式：加多宝,6,5,广东,2,饮料",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful request",
+            "schema" : {
+              "type" : "object"
+            }
+          },
+          "500" : {
+            "description" : "internal server error"
+          }
+        }
+      }
+    },
+    "/v0.1.0/commodity/deleteCommodityInfo" : {
+      "delete" : {
+        "tags" : [ "commodityInterface" ],
+        "summary" : "根据ID删除商品信息",
+        "description" : "delete commodity info by ID",
+        "operationId" : "deleteCommonditryInfoByID",
+        "produces" : [ "application/json;charset=UTF-8" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "description" : "int类型，商品编号",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "type" : "object"
+            }
+          },
+          "404" : {
+            "description" : "no found"
+          },
+          "500" : {
+            "description" : "internal server error"
+          }
+        }
+      }
+    },
+    "/v0.1.0/commodity/updateCommodityInfos" : {
+      "put" : {
+        "tags" : [ "commodityInterface" ],
+        "summary" : "更新商品信息列表",
+        "description" : "update commodity infos",
+        "operationId" : "updateCommonditryInfos",
+        "produces" : [ "application/json;charset=UTF-8" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/CommodityInfo"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "type" : "object"
+            }
+          },
+          "500" : {
+            "description" : "internal server error"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "CommodityInfo" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "price" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "producter" : {
+          "type" : "string"
+        },
+        "weight" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "type" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

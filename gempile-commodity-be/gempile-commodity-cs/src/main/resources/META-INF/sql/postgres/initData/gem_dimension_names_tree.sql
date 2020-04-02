@@ -1,0 +1,15 @@
+INSERT INTO "gem_dimension_names_tree" VALUES ('1319286715344491546', 'whole_network', NULL, 0);
+INSERT INTO "gem_dimension_names_tree" VALUES ('1319287227569673243', 'mme_group_id', '1319286715344491546', 1);
+INSERT INTO "gem_dimension_names_tree" VALUES ('1319287512404857884', 'mme_code', '1319287227569673243', 2);
+INSERT INTO "gem_dimension_names_tree" VALUES ('1319288162924631069', 'net_lattice', '1319286715344491546', 1);
+INSERT INTO "gem_dimension_names_tree" VALUES ('1319288480911594526', 'tac', '1319286715344491546', 3);
+INSERT INTO "gem_dimension_names_tree" VALUES ('1319288578110395423', 'enodeb_id', '1319288480911594526', 4);
+INSERT INTO "gem_dimension_names_tree" VALUES ('1319288660100650016', 'cell_id', '1319288578110395423', 5);
+INSERT INTO "gem_dimension_names_tree" VALUES ('1319288842687091745', 'imsi', '1319286715344491546', 8);
+INSERT INTO "gem_dimension_names_tree" VALUES ('1319289086493594658', 'ue_brand', '1319286715344491546', 6);
+INSERT INTO "gem_dimension_names_tree" VALUES ('1319289157930980387', 'ue_type', '1319289086493594658', 7);
+INSERT INTO "gem_dimension_names_tree" VALUES ('1319289633808323622', 'sgw', '1319286715344491546', 1);
+INSERT INTO "gem_dimension_names_tree" VALUES ('1319289710262096935', 'hss', '1319286715344491546', 1);
+INSERT INTO "gem_dimension_names_tree" VALUES ('1319289797637837864', 'msc', '1319286715344491546', 1);
+INSERT INTO "gem_dimension_names_tree" VALUES ('1344128939018163575', 'target_enodeb_id', '1319288480911594526', 4);
+INSERT INTO "gem_dimension_names_tree" VALUES ('1344129045217940856', 'target_cell_id', '1319288578110395423', 5);

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ 广州丰石科技有限公司拥有本软件版权2017并保留所有权利。
+  ~ Copyright 2017, Guangzhou Rich Stone Data Technologies Company Limited,
+  ~ All rights reserved.
+  -->
+
+<configuration>
+
+    <!-- Output to File day by day -->
+    <appender name="daily_file_log_appender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>%date %-5level [%thread] %logger{10} [%file:%line] %msg %n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>./../applogs/gempile-rs.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <!-- Output to console -->
+    <appender name="console_log_appender" class="ch.qos.logback.core.ConsoleAppender">
+    <!--<appender name="console_log_appender" class="com.richstonedt.gempile.core.rs.common.LogSQLConfig">-->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %highlight(%-5level) %logger{36} - %highlight(%msg) %n</pattern>
+        </encoder>
+    </appender>
+
+    <!--Set level of special file/package-->
+    <logger name="org.springframework.jdbc.datasource.DriverManagerDataSource" level="WARN"/>
+
+    <!-- level and appender -->
+    <root level="INFO">
+        <appender-ref ref="console_log_appender"/>
+        <appender-ref ref="daily_file_log_appender"/>
+    </root>
+
+</configuration> 

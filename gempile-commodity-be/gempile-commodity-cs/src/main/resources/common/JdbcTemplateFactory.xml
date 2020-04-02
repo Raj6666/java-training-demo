@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ 广州丰石科技有限公司拥有本软件版权2017并保留所有权利。
+  ~ Copyright 2017, Guangzhou Rich Stone Data Technologies Company Limited,
+  ~ All rights reserved.
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="jdbcTemplateFactory" class="com.richstonedt.gempile.commodity.cs.factory.JdbcTemplateFactory">
+        <property name="dataSourceMap">
+            <map>
+                <entry key="dataSource0" value-ref="dataSource0"/>
+                <entry key="dataSource1" value-ref="dataSource1"/>
+                <entry key="dataSource2" value-ref="dataSource2"/>
+                <entry key="dataSource3" value-ref="dataSource3"/>
+                <entry key="dataSource4" value-ref="dataSource4"/>
+                <entry key="dataSource5" value-ref="dataSource5"/>
+                <entry key="dataSource6" value-ref="dataSource6"/>
+                <entry key="dataSource_hx" value-ref="dataSource_hx"/>
+            </map>
+        </property>
+        <property name="defaultDataSource" ref="defaultDataSource"/>
+    </bean>
+</beans>
