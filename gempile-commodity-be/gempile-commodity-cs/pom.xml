@@ -25,7 +25,7 @@
         <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
         <sonar.jacoco.reportPath>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPath>
-        <h2.version>1.4.191</h2.version>
+        <h2.version>2.1.210</h2.version>
     </properties>
 
     <build>
